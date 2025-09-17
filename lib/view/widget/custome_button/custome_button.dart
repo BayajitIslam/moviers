@@ -52,7 +52,7 @@ class CustomeButton extends StatelessWidget {
           children: [
             //button icon is needed
             isIconEnable
-                ? Image.asset(icon, height: 20, width: 20)
+                ? Image.asset(icon, height: 24, width: 24)
                 : Container(),
             //button text
             SizedBox(width: 8),

@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:moviers/view/screen/auth_screen/login_screen/login_screen.dart';
 import 'package:moviers/view/screen/auth_screen/otp_verification/otp_verification.dart';
 import 'package:moviers/view/screen/auth_screen/register_screen/register_screen.dart';
-import 'package:moviers/view/screen/home_screen/home.dart';
+import 'package:moviers/view/screen/home_screen/home_screen.dart';
 import 'package:moviers/view/screen/onboarding/onboarding.dart';
 import 'package:moviers/view/screen/onboarding/onboarding_pages/onboarding_one.dart';
 import 'package:moviers/view/screen/onboarding/onboarding_pages/onboarding_two.dart';

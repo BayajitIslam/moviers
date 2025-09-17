@@ -21,4 +21,19 @@ class AppImage {
 
   static const String twoUser = "$basePath/2 User.png";
   static const String tickSquare = "$basePath/Tick Square.png";
+
+  //
+  static const String movieOne = "$basePath/movieOne.png";
+  static const String play = "$basePath/Play.png";
+  static const String watchlist = "$basePath/watchlist.png";
+  static const String movieTwo = "$basePath/movieTwo.png";
+  static const String baseBg = "$basePath/Base.png";
+  static const String movieThree = "$basePath/movieThree.png";
+  static const String videoPlayer = "$basePath/Enabled.png";
+
+  //populer star
+  static const String chrisEvan = "$basePath/Chris Evans.png";
+  static const String rober = "$basePath/Robert Downey.png";
+  static const String watson = "$basePath/Emma Watson.png";
+  static const String stone = "$basePath/Emma Stone.png";
 }

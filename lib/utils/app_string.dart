@@ -51,4 +51,10 @@ class AppString {
   static const String choiceYourGenre = "Choose your genre ";
   static const String from = " from 6";
   static const String coontinue = "Continue";
+
+  static const String watchMovie = "Watch Movie";
+  static const String topCharts = "Top Charts";
+  static const String viewAll = "View All";
+  static const String weeklyHighlight = "Weekly Highlight";
+  static const String popularStar = "Popular Star";
 }

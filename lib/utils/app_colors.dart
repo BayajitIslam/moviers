@@ -10,4 +10,7 @@ class AppColors {
   static const Color buttonBg = Color.fromARGB(12, 255, 255, 255);
   static const Color primaryFull = Color(0xFF0081FA);
   static const Color borderSide = Color.fromARGB(64, 255, 255, 255);
+  static const Color icon = Color(0xFFFFBB38);
+  static const Color linearGradietOne = Color.fromARGB(216, 21, 21, 21);
+  static const Color linearGradietTwo = Color.fromARGB(255, 0, 0, 0);
 }
