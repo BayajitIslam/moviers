@@ -1,4 +1,7 @@
 import 'package:get/get.dart';
+import 'package:moviers/view/screen/auth_screen/login_screen/login_screen.dart';
+import 'package:moviers/view/screen/auth_screen/register_screen/register_screen.dart';
+import 'package:moviers/view/screen/home_screen/home.dart';
 import 'package:moviers/view/screen/onboarding/onboarding.dart';
 import 'package:moviers/view/screen/onboarding/onboarding_pages/onboarding_one.dart';
 import 'package:moviers/view/screen/onboarding/onboarding_pages/onboarding_two.dart';
@@ -13,6 +16,13 @@ class AppRoutes {
   static const String onBoardingTwo = "/onBoardingTwo";
   static const String onBoarding = "/onboarding";
 
+  //<========== Auth Screen ==========>
+  static const String loginScreen = "/loginScreen";
+  static const String registerScreen = "/registerScreen";
+
+  //<========== Home Screen ==========>
+  static const String homeScreen = "/homeScreen";
+
   static List<GetPage> pages = [
     //<========== Splash Screen ==========>
     GetPage(name: splashScreen, page: () => SplashScreen()),
@@ -21,5 +31,12 @@ class AppRoutes {
     GetPage(name: onBoardingOne, page: () => OnboardingOne()),
     GetPage(name: onBoardingTwo, page: () => OnboardingTwo()),
     GetPage(name: onBoarding, page: () => Onboarding()),
+
+    //<========== Auth Screen ==========>
+    GetPage(name: loginScreen, page: () => LoginScreen()),
+    GetPage(name: registerScreen, page: () => RegisterScreen()),
+
+    //<========== Home Screen ==========>
+    GetPage(name: homeScreen, page: () => Home()),
   ];
 }

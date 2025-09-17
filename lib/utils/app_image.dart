@@ -7,7 +7,9 @@ class AppImage {
 
   //<========== OnboardingOne Screen ==========>
   static const String slideOnBoardingOne = "$basePath/slide.png";
-  static const String videoPlayerOnbTwo = "$basePath/videoPlayerOnbTwo.png";
+  static const String videoPlayerOnbTwo = "$basePath/onbTwoImage.png";
 
+  //<========== Auth Screen ==========>
   static const String apple = "$basePath/Apple.png";
+  static const String google = "$basePath/Google.png";
 }

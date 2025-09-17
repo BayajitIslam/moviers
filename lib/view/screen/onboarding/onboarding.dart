@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:moviers/core/app_routes/app_routes.dart';
 import 'package:moviers/utils/app_colors.dart';
 import 'package:moviers/utils/app_image.dart';
 import 'package:moviers/utils/app_string.dart';
@@ -16,6 +18,7 @@ class Onboarding extends StatelessWidget {
         backgroundColor: AppColors.neutral100,
         actionsPadding: EdgeInsets.only(right: 15.4),
         centerTitle: true,
+
         //<========== Appbar Logo  ==========>
         title: Image.asset(AppImage.logo, width: 111, height: 28.2),
         actions: [
@@ -23,6 +26,7 @@ class Onboarding extends StatelessWidget {
           TextButton(
             onPressed: () {
               //<========== Skip Routing ==========>
+              Get.toNamed(AppRoutes.registerScreen);
             },
 
             child: CustomeText(
@@ -36,10 +40,7 @@ class Onboarding extends StatelessWidget {
       ),
       body: PageView(
         scrollDirection: Axis.horizontal,
-        children: [
-         OnboardingOne(),
-         OnboardingTwo()
-         ],
+        children: [OnboardingOne(), OnboardingTwo()],
       ),
     );
   }

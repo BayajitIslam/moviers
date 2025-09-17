@@ -8,4 +8,6 @@ class AppColors {
   static const Color neutral70 = Color(0xFF757575);
   static const Color brand = Color(0xFF298CFF);
   static const Color buttonBg = Color.fromARGB(12, 255, 255, 255);
+  static const Color primaryFull = Color(0xFF0081FA);
+  static const Color borderSide = Color.fromARGB(64, 255, 255, 255);
 }
