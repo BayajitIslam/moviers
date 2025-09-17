@@ -63,184 +63,188 @@ class RegisterScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: Column(
-          children: [
-            //Register title
-            SizedBox(height: 25.w),
-            Row(
-              children: [
-                CustomeText(
-                  text: AppString.createNewAccount,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          child: Column(
+            children: [
+              //Register title
+              SizedBox(height: 25.w),
+              Row(
+                children: [
+                  CustomeText(
+                    text: AppString.createNewAccount,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ],
+              ),
+
+              //email textfield
+              SizedBox(height: 24.h),
+              CustomeTextfield(
+                onChanged: (value) => email.value = value,
+                hintText: AppString.email,
+                textfielController: emailTextController,
+                prefixicon: Icons.email,
+              ),
+
+              //password textfield
+              SizedBox(height: 16.h),
+              CustomeTextfield(
+                onChanged: (value) => password.value = value,
+                hintText: AppString.password,
+                textfielController: passwordTextController,
+                prefixicon: Icons.lock,
+              ),
+
+              //confirm textfield
+              SizedBox(height: 24.h),
+              CustomeTextfield(
+                onChanged: (value) => confirmPw.value = value,
+                hintText: AppString.confitmPass,
+                textfielController: confirmPwTextController,
+                prefixicon: Icons.email,
+              ),
+
+              //date year textfield
+              SizedBox(height: 16.h),
+              CustomeTextfield(
+                onChanged: (value) => dateYear.value = value,
+                hintText: AppString.ddmmyyyy,
+                textfielController: dateYearTextController,
+                prefixicon: Icons.date_range,
+              ),
+
+              //login button
+              SizedBox(height: 16),
+              Obx(
+                () => CustomeButton(
+                  width: double.infinity,
+                  height: 48.h,
+                  fontsize: 16,
+                  textColor:
+                      password.value.isEmpty ||
+                          email.value.isEmpty ||
+                          dateYear.value.isEmpty ||
+                          confirmPw.value.isEmpty
+                      ? AppColors.neutral70
+                      : AppColors.primaryText,
+                  bgColor:
+                      password.value.isEmpty ||
+                          email.value.isEmpty ||
+                          dateYear.value.isEmpty ||
+                          confirmPw.value.isEmpty
+                      ? AppColors.buttonBg
+                      : AppColors.brand,
+                  buttonName: AppString.createAccount,
+                  onTap: () {
+                    //Register Button Fuction
+                    password.value.isNotEmpty &&
+                            email.value.isNotEmpty &&
+                            confirmPw.value.isNotEmpty &&
+                            dateYear.value.isNotEmpty
+                        ? Get.toNamed(
+                            AppRoutes.otpVerification,
+                            arguments: emailTextController.text,
+                          )
+                        : null;
+                  },
                 ),
-              ],
-            ),
+              ),
 
-            //email textfield
-            SizedBox(height: 24.h),
-            CustomeTextfield(
-              onChanged: (value) => email.value = value,
-              hintText: AppString.email,
-              textfielController: emailTextController,
-              prefixicon: Icons.email,
-            ),
+              //or
+              SizedBox(height: 16.h),
+              CustomeText(
+                text: AppString.or,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: AppColors.neutral60,
+              ),
 
-            //password textfield
-            SizedBox(height: 16.h),
-            CustomeTextfield(
-              onChanged: (value) => password.value = value,
-              hintText: AppString.password,
-              textfielController: passwordTextController,
-              prefixicon: Icons.lock,
-            ),
-
-            //confirm textfield
-            SizedBox(height: 24.h),
-            CustomeTextfield(
-              onChanged: (value) => confirmPw.value = value,
-              hintText: AppString.confitmPass,
-              textfielController: confirmPwTextController,
-              prefixicon: Icons.email,
-            ),
-
-            //date year textfield
-            SizedBox(height: 16.h),
-            CustomeTextfield(
-              onChanged: (value) => dateYear.value = value,
-              hintText: AppString.ddmmyyyy,
-              textfielController: dateYearTextController,
-              prefixicon: Icons.date_range,
-            ),
-
-            //login button
-            SizedBox(height: 16),
-            Obx(
-              () => CustomeButton(
+              //apple login button
+              SizedBox(height: 16.h),
+              CustomeButton(
                 width: double.infinity,
                 height: 48.h,
+                isIconEnable: true,
+                icon: AppImage.apple,
+                buttonName: AppString.registerApple,
+                textColor: AppColors.neutral100,
+                bgColor: AppColors.primaryText,
                 fontsize: 16,
-                textColor:
-                    password.value.isEmpty ||
-                        email.value.isEmpty ||
-                        dateYear.value.isEmpty ||
-                        confirmPw.value.isEmpty
-                    ? AppColors.neutral70
-                    : AppColors.primaryText,
-                bgColor:
-                    password.value.isEmpty ||
-                        email.value.isEmpty ||
-                        dateYear.value.isEmpty ||
-                        confirmPw.value.isEmpty
-                    ? AppColors.buttonBg
-                    : AppColors.brand,
-                buttonName: AppString.createAccount,
+
                 onTap: () {
-                  //Login Button Fuction
-                  password.value.isNotEmpty &&
-                          email.value.isNotEmpty &&
-                          confirmPw.value.isNotEmpty &&
-                          dateYear.value.isNotEmpty
-                      ? Get.toNamed(AppRoutes.homeScreen)
-                      : null;
+                  //Apple Login Fuction Here
+                  Get.toNamed(AppRoutes.homeScreen);
                 },
               ),
-            ),
 
-            //or
-            SizedBox(height: 16.h),
-            CustomeText(
-              text: AppString.or,
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              color: AppColors.neutral60,
-            ),
+              //google login button
+              SizedBox(height: 16.h),
+              CustomeButton(
+                width: double.infinity,
+                height: 48.h,
+                isBorderEnable: true,
+                isIconEnable: true,
+                icon: AppImage.google,
+                buttonName: AppString.registerGoogle,
+                textColor: AppColors.primaryText,
+                bgColor: AppColors.neutral100,
+                fontsize: 16,
 
-            //apple login button
-            SizedBox(height: 16.h),
-            CustomeButton(
-              width: double.infinity,
-              height: 48.h,
-              isIconEnable: true,
-              icon: AppImage.apple,
-              buttonName: AppString.registerApple,
-              textColor: AppColors.neutral100,
-              bgColor: AppColors.primaryText,
-              fontsize: 16,
+                onTap: () {
+                  //Google Login Fuction Here
+                  Get.toNamed(AppRoutes.homeScreen);
+                },
+              ),
 
-              onTap: () {
-                //Apple Login Fuction Here
-                Get.toNamed(AppRoutes.homeScreen);
-              },
-            ),
-
-            //google login button
-            SizedBox(height: 16.h),
-            CustomeButton(
-              width: double.infinity,
-              height: 48.h,
-              isBorderEnable: true,
-              isIconEnable: true,
-              icon: AppImage.google,
-              buttonName: AppString.registerGoogle,
-              textColor: AppColors.primaryText,
-              bgColor: AppColors.neutral100,
-              fontsize: 16,
-
-              onTap: () {
-                //Google Login Fuction Here
-                Get.toNamed(AppRoutes.homeScreen);
-              },
-            ),
-
-            //dont have an account? sign up
-            Spacer(),
-
-            CustomeText(
-              text: AppString.aggreeTerm,
-              color: AppColors.neutral60,
-              fontSize: 14,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                //privacy policy button
-                InkWell(
-                  onTap: () {
-                    //privacy policy pages route here
-                  },
-                  child: CustomeText(
-                    text: AppString.privacyPolicy,
-                    fontSize: 14,
-                    color: AppColors.primaryFull,
-                    fontWeight: FontWeight.w300,
+              //privacy and terms of use
+              SizedBox(height: 40.h),
+              CustomeText(
+                text: AppString.aggreeTerm,
+                color: AppColors.neutral60,
+                fontSize: 14,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  //privacy policy button
+                  InkWell(
+                    onTap: () {
+                      //privacy policy pages route here
+                    },
+                    child: CustomeText(
+                      text: AppString.privacyPolicy,
+                      fontSize: 14,
+                      color: AppColors.primaryFull,
+                      fontWeight: FontWeight.w300,
+                    ),
                   ),
-                ),
 
-                //and text
-                CustomeText(
-                  text: AppString.and,
-                  color: AppColors.neutral60,
-                  fontSize: 14,
-                ),
-                //terms and use button
-                InkWell(
-                  onTap: () {
-                    //terms of use pages route here
-                  },
-                  child: CustomeText(
-                    text: AppString.termsOfUse,
+                  //and text
+                  CustomeText(
+                    text: AppString.and,
+                    color: AppColors.neutral60,
                     fontSize: 14,
-                    color: AppColors.primaryFull,
-                    fontWeight: FontWeight.w300,
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 80.h),
-          ],
+                  //terms and use button
+                  InkWell(
+                    onTap: () {
+                      //terms of use pages route here
+                    },
+                    child: CustomeText(
+                      text: AppString.termsOfUse,
+                      fontSize: 14,
+                      color: AppColors.primaryFull,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 80.h),
+            ],
+          ),
         ),
       ),
     );

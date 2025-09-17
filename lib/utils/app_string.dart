@@ -28,6 +28,7 @@ class AppString {
   static const String dontHaveAnAccount = "Dont have an account?";
   static const String signUp = " Sign Up";
 
+  //<========== Register Screen ==========>
   static const String register = "Register";
   static const String createNewAccount = "Create New Account";
   static const String confitmPass = "Confirm Password";
@@ -39,4 +40,9 @@ class AppString {
   static const String and = " and ";
   static const String termsOfUse = " Terms of Use";
   static const String aggreeTerm = "By creating an account, you agree to our’s";
+
+  //<========== OTP Verification Screen ==========>
+  static const String otpVerification = "OTP Verification";
+  static const String codeIsSent = "Code is sent to  ";
+  static const String verify = "Verify";
 }
