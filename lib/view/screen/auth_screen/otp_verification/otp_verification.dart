@@ -159,7 +159,7 @@ class OtpVerification extends StatelessWidget {
                     : AppColors.neutral70,
                 onTap: () {
                   otp.value.length == 4
-                      ? Get.toNamed(AppRoutes.homeScreen)
+                      ? Get.toNamed(AppRoutes.personalizationScreen)
                       : null;
                 },
               ),

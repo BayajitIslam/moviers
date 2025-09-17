@@ -45,4 +45,10 @@ class AppString {
   static const String otpVerification = "OTP Verification";
   static const String codeIsSent = "Code is sent to  ";
   static const String verify = "Verify";
+
+  //<========== Personalization Screen ==========>
+  static const String personalization = "Personalization";
+  static const String choiceYourGenre = "Choose your genre ";
+  static const String from = " from 6";
+  static const String coontinue = "Continue";
 }

@@ -6,6 +6,7 @@ import 'package:moviers/view/screen/home_screen/home.dart';
 import 'package:moviers/view/screen/onboarding/onboarding.dart';
 import 'package:moviers/view/screen/onboarding/onboarding_pages/onboarding_one.dart';
 import 'package:moviers/view/screen/onboarding/onboarding_pages/onboarding_two.dart';
+import 'package:moviers/view/screen/personalization_screen/personalization_screen.dart';
 import 'package:moviers/view/screen/splash_screen/splash_screen.dart';
 
 class AppRoutes {
@@ -22,6 +23,9 @@ class AppRoutes {
   static const String registerScreen = "/registerScreen";
   static const String otpVerification = "/otpVerificationScreen";
 
+  //<========== Personalization Screen ==========>
+  static const String personalizationScreen = "/personalizationScreen";
+
   //<========== Home Screen ==========>
   static const String homeScreen = "/homeScreen";
 
@@ -37,7 +41,10 @@ class AppRoutes {
     //<========== Auth Screen ==========>
     GetPage(name: loginScreen, page: () => LoginScreen()),
     GetPage(name: registerScreen, page: () => RegisterScreen()),
-    GetPage(name: otpVerification, page: ()=>  OtpVerification()),
+    GetPage(name: otpVerification, page: () => OtpVerification()),
+
+    //<========== Personalization Screen ==========>
+    GetPage(name: personalizationScreen, page: () => PersonalizationScreen()),
 
     //<========== Home Screen ==========>
     GetPage(name: homeScreen, page: () => Home()),
