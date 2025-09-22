@@ -8,12 +8,14 @@ class MovieShortsInformation extends StatelessWidget {
   final String year;
   final String videoLength;
   final String genre;
+  final double gap;
   const MovieShortsInformation({
     super.key,
     required this.rating,
     required this.year,
     required this.genre,
     required this.videoLength,
+    required this.gap
   });
 
   @override
@@ -22,11 +24,11 @@ class MovieShortsInformation extends StatelessWidget {
       children: [
         //reviw
         Icon(Icons.star, color: AppColors.icon),
-        SizedBox(width: 8.w),
+        SizedBox(width: 6.w),
         CustomeText(text: "$rating", color: AppColors.icon),
 
         //release date
-        SizedBox(width: 16.w),
+        SizedBox(width: gap.w),
         CustomeText(
           text: year,
           color: AppColors.neutral60,
@@ -35,7 +37,7 @@ class MovieShortsInformation extends StatelessWidget {
         ),
 
         //movie length
-        SizedBox(width: 16.w),
+        SizedBox(width: gap.w),
         CustomeText(
           text: videoLength,
           color: AppColors.neutral60,
@@ -43,7 +45,7 @@ class MovieShortsInformation extends StatelessWidget {
           fontWeight: FontWeight.w400,
         ),
         //genre
-        SizedBox(width: 16.w),
+        SizedBox(width: gap.w),
         CustomeText(
           text: genre,
           color: AppColors.neutral60,

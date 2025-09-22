@@ -2,7 +2,10 @@ import 'package:get/get.dart';
 import 'package:moviers/view/screen/auth_screen/login_screen/login_screen.dart';
 import 'package:moviers/view/screen/auth_screen/otp_verification/otp_verification.dart';
 import 'package:moviers/view/screen/auth_screen/register_screen/register_screen.dart';
-import 'package:moviers/view/screen/home_screen/home_screen.dart';
+import 'package:moviers/view/screen/home_screen/home_screen/home_screen.dart';
+import 'package:moviers/view/screen/home_screen/top_charts_screen/top_charts_screen.dart';
+import 'package:moviers/view/screen/movei_screen/movie_binding/movie_binding.dart';
+import 'package:moviers/view/screen/movei_screen/movie_screen.dart';
 import 'package:moviers/view/screen/onboarding/onboarding.dart';
 import 'package:moviers/view/screen/onboarding/onboarding_pages/onboarding_one.dart';
 import 'package:moviers/view/screen/onboarding/onboarding_pages/onboarding_two.dart';
@@ -28,6 +31,10 @@ class AppRoutes {
 
   //<========== Home Screen ==========>
   static const String homeScreen = "/homeScreen";
+  static const String topChartsScreen = "/topChartsScreen";
+
+  //<========== Movie Player Screen ==========>
+  static const String movieScreen = "/movieScreen";
 
   static List<GetPage> pages = [
     //<========== Splash Screen ==========>
@@ -48,5 +55,13 @@ class AppRoutes {
 
     //<========== Home Screen ==========>
     GetPage(name: homeScreen, page: () => Home()),
+    GetPage(name: topChartsScreen, page: () => TopChartsScreen()),
+
+    //<========== Movie Player Screen ==========>
+    GetPage(
+      name: movieScreen,
+      page: () => MovieScreen(),
+      binding: MovieBinding(),
+    ),
   ];
 }

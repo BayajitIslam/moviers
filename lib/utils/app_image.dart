@@ -36,4 +36,14 @@ class AppImage {
   static const String rober = "$basePath/Robert Downey.png";
   static const String watson = "$basePath/Emma Watson.png";
   static const String stone = "$basePath/Emma Stone.png";
+
+  //Top Charts
+  static const String legends =
+      "$basePath/3a8fd82a27d4b78b889954505164d6cc36cb0d17.png";
+  static const String theGoodDinosaur =
+      "$basePath/6cdcb190fbc5fb77fda553077dc70e600e4193de.png";
+  static const String soul =
+      "$basePath/38d38a8df8cc25c8b9e713f54c897c1a61439cac.png";
+  static const String brave =
+      "$basePath/5099ff04c18d09a186190ba7fa83199fcc4280e4.png";
 }
