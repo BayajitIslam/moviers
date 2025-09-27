@@ -21,6 +21,8 @@ class MovieDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     //desc
     final String desc = movie["desc"];
+    //trailer
+    String trailer = movie["trailer"];
 
     return Scaffold(
       backgroundColor: AppColors.neutral100,
@@ -89,8 +91,8 @@ class MovieDetailsScreen extends StatelessWidget {
                   children: <InlineSpan>[
                     //desc
                     TextSpan(
-                      text: desc.length > 170
-                          ? "${desc.substring(0, 168)}..."
+                      text: desc.length > 160
+                          ? "${desc.substring(0, 160)}..."
                           : desc,
                       style: TextStyle(
                         fontSize: 14,
@@ -99,7 +101,7 @@ class MovieDetailsScreen extends StatelessWidget {
                     ),
 
                     // see more button
-                    if (desc.length > 170)
+                    if (desc.length > 160)
                       WidgetSpan(
                         alignment: PlaceholderAlignment.baseline,
                         baseline: TextBaseline.alphabetic,
@@ -186,12 +188,10 @@ class MovieDetailsScreen extends StatelessWidget {
 
             //Trailers
             SizedBox(height: 15),
-            TrailerDesign(movieTrailer: movie["trailer"]),
-
-            //watch now and watchlist
-            SizedBox(height: 24.h),
-
-            SizedBox(height: 44.h),
+            // ignore: deprecated_member_use
+            trailer.isNotEmpty || trailer.isNull
+                ? TrailerDesign(movieTrailer: movie["trailer"])
+                : Container(),
           ],
         ),
       ),
@@ -212,7 +212,6 @@ class MovieDetailsScreen extends StatelessWidget {
                 onTap: () {
                   //Watch movie fuction here
                   String movieLink = movie["movieLink"];
-
                   Get.toNamed(AppRoutes.movieScreen, arguments: movieLink);
                 },
               ),

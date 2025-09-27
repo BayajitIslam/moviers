@@ -22,6 +22,11 @@ class Topcharts extends StatelessWidget {
       "year": "2021",
       "length": "2h 35m",
       "genre": "Action",
+      "movieLink":
+          "https://2050today.org/wp-content/uploads/2020/07/Video-Placeholder.mp4",
+      "desc":
+          "Paul Atreides arrives on Arrakis after his father accepts the stewardship of the dangerous planet. However, chaos ensues after a betrayal as forces clash to control melange, a precious resource",
+      "trailer": "",
     },
     {
       "image": AppImage.movieThree,
@@ -30,6 +35,11 @@ class Topcharts extends StatelessWidget {
       "year": "2015",
       "length": "1h 24m",
       "genre": "Sci-Fi",
+      "movieLink":
+          "https://2050today.org/wp-content/uploads/2020/07/Video-Placeholder.mp4",
+      "desc":
+          "A secret government agency recruits some of the most dangerous incarcerated super-villains to form a defensive task force. Their first mission: save the world from the apocalypse.",
+      "trailer": "",
     },
     {
       "image": AppImage.movieOne,
@@ -39,10 +49,10 @@ class Topcharts extends StatelessWidget {
       "length": "1h 54m",
       "genre": "Sci-Fi",
       "movieLink":
-          " https://2050today.org/wp-content/uploads/2020/07/Video-Placeholder.mp4",
+          "https://2050today.org/wp-content/uploads/2020/07/Video-Placeholder.mp4",
       "desc":
           "A Star Wars Story itself focuses on the Rebel Alliance which recruits Jyn Erso (Felicity Jones) after the formation of the Galaxy earning his living Told there is a woman named Jyn Erso (Felicity Jones).\n\nA rebel soldier and criminal is about to face his greatest challenge when Mon Mothma (Genevieve O'Reilly) sends him on a dangerous mission.Jyn is tasked with stealing the plans for the Death Star, the Empire's weapon of mass destruction that could destroy a planet.\n\nWith the help of rebel strongholds, swordsmen, and other troops, Jyn will become part of something very big she never thought of before.",
-      "trailer":  AppImage.trailerImage,
+      "trailer": AppImage.trailerImage,
     },
   ];
 
