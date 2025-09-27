@@ -8,18 +8,19 @@ class MovieController extends GetxController {
 
   /// Initialize video with a network URL
   void initVideo(String url) async {
+    //landscape mode
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+    ]);
+
+    //Loading And Play Video
     isLoading.value = true;
     videoController = VideoPlayerController.networkUrl(Uri.parse(url));
     await videoController.initialize();
     videoController.setLooping(true);
     videoController.play();
     isLoading.value = false;
-
-    //landscape mode
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeRight,
-      DeviceOrientation.landscapeLeft,
-    ]);
   }
 
   /// Play / Pause toggle

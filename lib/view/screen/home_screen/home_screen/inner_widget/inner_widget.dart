@@ -13,7 +13,7 @@ import 'package:moviers/view/widget/movei_information/movie_shorts_information.d
 class Topcharts extends StatelessWidget {
   Topcharts({super.key});
 
-  //wekkly highlight list
+  //Top Chart Movie list
   final List<Map<String, dynamic>> topCharts = [
     {
       "image": AppImage.movieTwo,
@@ -38,6 +38,11 @@ class Topcharts extends StatelessWidget {
       "year": "2016",
       "length": "1h 54m",
       "genre": "Sci-Fi",
+      "movieLink":
+          " https://2050today.org/wp-content/uploads/2020/07/Video-Placeholder.mp4",
+      "desc":
+          "A Star Wars Story itself focuses on the Rebel Alliance which recruits Jyn Erso (Felicity Jones) after the formation of the Galaxy earning his living Told there is a woman named Jyn Erso (Felicity Jones).\n\nA rebel soldier and criminal is about to face his greatest challenge when Mon Mothma (Genevieve O'Reilly) sends him on a dangerous mission.Jyn is tasked with stealing the plans for the Death Star, the Empire's weapon of mass destruction that could destroy a planet.\n\nWith the help of rebel strongholds, swordsmen, and other troops, Jyn will become part of something very big she never thought of before.",
+      "trailer":  AppImage.trailerImage,
     },
   ];
 
@@ -88,13 +93,15 @@ class Topcharts extends StatelessWidget {
                 itemCount: topCharts.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  
                   //individula movie
                   final movie = topCharts[index];
                   return TopChartCard(
                     ontap: () {
                       //view  movie detailse
-
+                      Get.toNamed(
+                        AppRoutes.movieDetailsScreen,
+                        arguments: movie,
+                      );
                     },
                     image: movie["image"],
                     title: movie["title"],
@@ -131,7 +138,7 @@ class TopChartCard extends StatelessWidget {
     required this.rating,
     required this.title,
     required this.year,
-    required this.ontap
+    required this.ontap,
   });
 
   @override
@@ -140,35 +147,39 @@ class TopChartCard extends StatelessWidget {
       padding: const EdgeInsets.only(right: 10.0),
       child: GestureDetector(
         onTap: ontap,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            //image
-            Container(
-              width: 284.w,
-              height: 160.h,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(4)),
-              child: Image.asset(image, fit: BoxFit.cover),
-            ),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //image
+              Container(
+                width: 284.w,
+                height: 160.h,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Image.asset(image, fit: BoxFit.cover),
+              ),
 
-            //title
-            SizedBox(height: 10.h),
-            CustomeText(
-              text: title,
-              color: AppColors.primaryText,
-              fontWeight: FontWeight.w400,
-            ),
+              //title
+              SizedBox(height: 10.h),
+              CustomeText(
+                text: title,
+                color: AppColors.primaryText,
+                fontWeight: FontWeight.w400,
+              ),
 
-            //short desc
-            SizedBox(height: 6.h),
-            MovieShortsInformation(
-              gap: 16,
-              rating: rating,
-              year: year,
-              videoLength: lenght,
-              genre: genre,
-            ),
-          ],
+              //short desc
+              SizedBox(height: 6.h),
+              MovieShortsInformation(
+                gap: 16,
+                rating: rating,
+                year: year,
+                videoLength: lenght,
+                genre: genre,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -286,45 +297,47 @@ class WeeklyHighlightCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          width: 327.w,
-          height: 183.h,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              //movie thumnail
-              image: AssetImage(image),
-              fit: BoxFit.cover,
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 327.w,
+            height: 183.h,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                //movie thumnail
+                image: AssetImage(image),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Image.asset(AppImage.videoPlayer),
+                SizedBox(height: 10.h),
+              ],
             ),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Image.asset(AppImage.videoPlayer),
-              SizedBox(height: 10.h),
-            ],
+          //title
+          SizedBox(height: 10.h),
+          CustomeText(
+            text: title,
+            color: AppColors.primaryText,
+            fontWeight: FontWeight.w400,
           ),
-        ),
-        //title
-        SizedBox(height: 10.h),
-        CustomeText(
-          text: title,
-          color: AppColors.primaryText,
-          fontWeight: FontWeight.w400,
-        ),
 
-        //short desc
-        SizedBox(height: 6.h),
-        MovieShortsInformation(
-          gap: 16,
-          rating: rating,
-          year: year,
-          videoLength: lenght,
-          genre: genre,
-        ),
-      ],
+          //short desc
+          SizedBox(height: 6.h),
+          MovieShortsInformation(
+            gap: 16,
+            rating: rating,
+            year: year,
+            videoLength: lenght,
+            genre: genre,
+          ),
+        ],
+      ),
     );
   }
 }
@@ -365,25 +378,30 @@ class PopulerStar extends StatelessWidget {
                   final star = populerStar[index];
                   return Padding(
                     padding: const EdgeInsets.only(right: 10.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        //Profile pic
-                        SizedBox(height: 10.h),
-                        SizedBox(
-                          height: 100.h,
-                          width: 100.w,
-                          child: Image.asset(star["image"], fit: BoxFit.cover),
-                        ),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          //Profile pic
+                          SizedBox(height: 10.h),
+                          SizedBox(
+                            height: 100.h,
+                            width: 100.w,
+                            child: Image.asset(
+                              star["image"],
+                              fit: BoxFit.cover,
+                            ),
+                          ),
 
-                        //star name
-                        SizedBox(height: 10.h),
-                        CustomeText(
-                          text: star['name'],
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ],
+                          //star name
+                          SizedBox(height: 10.h),
+                          CustomeText(
+                            text: star['name'],
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },

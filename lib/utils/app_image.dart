@@ -46,4 +46,8 @@ class AppImage {
       "$basePath/38d38a8df8cc25c8b9e713f54c897c1a61439cac.png";
   static const String brave =
       "$basePath/5099ff04c18d09a186190ba7fa83199fcc4280e4.png";
+
+  //assets
+  static const String trailerImage = "$basePath/Player-Trailer.png";
+  static const String pause = "$basePath/Group 5.png";
 }

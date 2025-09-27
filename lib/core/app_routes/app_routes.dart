@@ -6,6 +6,7 @@ import 'package:moviers/view/screen/home_screen/home_screen/home_screen.dart';
 import 'package:moviers/view/screen/home_screen/top_charts_screen/top_charts_screen.dart';
 import 'package:moviers/view/screen/movei_screen/movie_binding/movie_binding.dart';
 import 'package:moviers/view/screen/movei_screen/movie_screen.dart';
+import 'package:moviers/view/screen/movie_detailse_screen/movie_details_screen.dart';
 import 'package:moviers/view/screen/onboarding/onboarding.dart';
 import 'package:moviers/view/screen/onboarding/onboarding_pages/onboarding_one.dart';
 import 'package:moviers/view/screen/onboarding/onboarding_pages/onboarding_two.dart';
@@ -36,6 +37,9 @@ class AppRoutes {
   //<========== Movie Player Screen ==========>
   static const String movieScreen = "/movieScreen";
 
+  //<========== Movie Details  Screen ==========>
+  static const String movieDetailsScreen = "/MovieDeatailsScreen";
+
   static List<GetPage> pages = [
     //<========== Splash Screen ==========>
     GetPage(name: splashScreen, page: () => SplashScreen()),
@@ -63,5 +67,8 @@ class AppRoutes {
       page: () => MovieScreen(),
       binding: MovieBinding(),
     ),
+
+    //<========== Movie Details  Screen ==========>
+    GetPage(name: movieDetailsScreen, page: () => MovieDetailsScreen()),
   ];
 }

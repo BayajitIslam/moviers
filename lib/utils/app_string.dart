@@ -57,4 +57,5 @@ class AppString {
   static const String viewAll = "View All";
   static const String weeklyHighlight = "Weekly Highlight";
   static const String popularStar = "Popular Star";
+  static const String trailer = "Trailer";
 }
